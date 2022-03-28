@@ -1,0 +1,92 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<div class="categories categories_page">
+	<div class="round"></div>
+	<span>ОСНОВНЫЕ НОВОСТИ В РУБРИКЕ {{ category_title }}</span>
+</div>
+
+<div class="part-1 categories_part-1">
+	<div class="left">
+
+		{% for news in category_big %}
+
+			<a href="../news/{{ news.id }}">
+				<div class="big">
+				{% load static %}
+				<img src="{{ news.image.url }}">
+				<div class="text">
+					<div class="date">
+						{% load static %}
+						<img src="{% static 'main/img/calendar.png' %}" alt="">
+						<span>{{ news.date }}</span>
+					</div>
+					<div class="heading">{{ news.heading }}</div>
+					<div class="main-info">{{ news.main_info }}</div>
+					</div>
+				</div>
+			</a>
+		
+		{% endfor %}
+
+		<div class="small_block">
+
+			{% for news in category_small %}
+				<a href="../news/{{ news.id }}">
+					<div class="small">
+						{% load static %}
+						<img src="{{ news.image.url }}">
+						<div class="text">
+							<div class="date">
+								{% load static %}
+								<img src="{% static 'main/img/calendar.png' %}" alt="">
+								<span>{{ news.date }}</span>
+							</div>
+							<div class="heading">{{ news.heading }}</div>
+						</div>
+					</div>
+				</a>
+			
+			{% endfor %}
+
+		</div>
+	</div>
+	<div class="right">
+		<div class="categories">
+			<div class="round"></div>
+			<span>Последние новости</span>
+		</div>
+
+		{% for news in last_news %}
+
+			<a href="../news/{{ news.id }}">
+				<div class="last_news">
+					<div class="date">
+						<img src="img/calendar.png" alt="">
+						<span>{{ news.date }}</span>
+					</div>
+					<div class="heading">{{ news.heading }}</div>
+				</div>
+			</a>
+	
+		{% endfor %}
+
+	</div>
+</div>
+
+<div class="part-2">
+	<div class="small_news_block small_news_block_categories">
+		{% for news in category_small_news %} 
+			<a href="../news/{{ news.id }}">
+				<div class="small_news">
+					{% load static %}
+					<img src="{{ news.image.url }}">
+					<div class="heading">{{ news.heading }}</div>
+				</div>
+			</a>
+		{% endfor %}
+	</div>
+</div>
+
+{% endblock %}

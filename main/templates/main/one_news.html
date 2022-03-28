@@ -1,0 +1,65 @@
+{% extends 'main/base.html' %}
+ 
+{% block content %}
+
+<div class="main">
+	<div class="left">
+		<div class="categories">
+			<div class="round"></div>
+			<span>Последние новости</span>
+		</div>
+
+		{% for news in last_news %}
+			<a href="../news/{{ news.id }}">
+				<div class="last_news">
+					<div class="time"><span>{{ news.date }}</span></div>
+					<div class="heading">{{ news.heading }}</div>
+				</div>
+			</a>
+		{% endfor %}
+
+	</div>
+	<div class="center">
+		<div class="header">
+			<div class="time"><span>{{ news.date}}</span></div>
+			<div class="view">7295</div>
+		</div>
+		<div class="heading">{{ news.heading }}</div>
+		<div class="main-info">{{ news.main_info }}</div>
+		{% load static %}
+		<img src="{{ news.image.url }}" alt="">
+		<div class="content">{{ news.content }}</div>
+	</div>
+	<div class="right">
+		<div class="categories">
+			<div class="round"></div>
+			<span>Советуем прочитать</span>
+		</div>
+
+		{% for news in recommended_news %}
+			<a href="../news/{{ news.id }}">
+				<div class="last_news">
+					<div class="time"><span>{{ news.date }}</span></div>
+					<div class="heading">{{ news.heading }}</div>
+				</div>
+			</a>
+		{% endfor %}
+
+	</div>
+</div>
+
+<div class="part-2">
+	<div class="small_news_block small_news_block_categories">
+		{% for news in category_small_news %} 
+			<a href="../news/{{ news.id }}">
+				<div class="small_news">
+					{% load static %}
+					<img src="{{ news.image.url }}">
+					<div class="heading">{{ news.heading }}</div>
+				</div>
+			</a>
+		{% endfor %}
+	</div>
+</div>
+
+{% endblock %}

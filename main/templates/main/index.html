@@ -1,0 +1,243 @@
+{% extends 'main/base.html'%}
+
+{% block content %}
+
+<div class="part-1">
+	<div class="left">
+		
+		{% for news in different_big %}
+
+		<a href="news/{{ news.id }}">
+			<div class="big">
+				{% load static %}
+				<img src="{{ news.image.url }}">
+				<div class="text">
+					<div class="date">
+					{% load static %}
+					<img src="{% static 'main/img/calendar.png' %}" alt="">
+					<span>{{ news.date }}</span>
+					</div>
+					<div class="heading">{{ news.heading }}</div>
+					<div class="main-info">{{ news.main_info }}</div>
+				</div>
+			</div>
+		</a>
+
+		{% endfor %}
+		
+		<div class="small_block">
+		
+		{% for news in different_small %}
+		
+			<a href="news/{{ news.id }}">
+				<div class="small">
+					{% load static %}
+					<img src="{{ news.image.url }}"/>
+					<div class="text">
+						<div class="date">
+							{% load static %}
+							<img src="{% static 'main/img/calendar.png' %}" alt="">
+							<span>{{ news.date }}</span>
+						</div>
+						<div class="heading">{{ news.heading }}</div>
+					</div>
+				</div>
+			</a>
+			
+		{% endfor %}
+
+		</div>
+	</div>
+	<div class="right">
+		<div class="categories">
+			<div class="round"></div>
+			<span>Последние новости</span>
+		</div>
+
+		{% for news in last_news %}
+
+			<a href="../news/{{ news.id }}">
+				<div class="last_news">
+					<div class="date">
+						<img src="img/calendar.png" alt="">
+						<span>{{ news.date }}</span>
+					</div>
+					<div class="heading">{{ news.heading }}</div>
+				</div>
+			</a>
+	
+		{% endfor %}
+
+	</div>
+</div>
+
+
+<div class="part-2">
+	<a href="category/uzbekistan">
+		<div class="categories">
+			<div class="round"></div>
+			<span>Узбекистан</span>
+		</div>
+	</a>
+	<div class="big_news_block">
+
+		{% for news in uzbekistan_big %}
+
+		<a href="news/{{ news.id }}">
+			<div class="big_news">
+				{% load static %}
+				<img src="{{ news.image.url }}"/>
+				<div class="text">
+					<div class="heading">{{ news.heading }}</div>
+					<div class="main-info">{{ news.main_info }}</div>
+				</div>
+			</div>
+		</a>
+
+		{% endfor %}
+
+	</div>
+	<div class="small_news_block">
+
+		{% for news in uzbekistan_small %}
+
+		<a href="news/{{ news.id }}">
+			<div class="small_news">
+				{% load static %}
+				<img src="{{ news.image.url }}"/>
+				<div class="heading">{{ news.heading }}</div>
+			</div>
+		</a>
+
+		{% endfor %}
+
+	</div>
+</div>
+
+<div class="part-3">
+	<a href="category/world">
+		<div class="categories">
+			<div class="round"></div>
+			<span>Мир</span>
+		</div>
+	</a>
+	<div class="news_block">
+
+		{% for news in world_big %}
+		
+		<a href="news/{{ news.id }}">
+			<div class="big_news">
+				{% load static %}
+				<img src="{{ news.image.url }}"/>
+				<div class="text">
+					<div class="heading">{{ news.heading }}</div>
+					<div class="main-info">{{ news.main_info }}</div>
+				</div>
+			</div>
+		</a>
+
+		{% endfor %}
+		
+		<div class="small_news_block">
+
+			{% for news in world_small %}
+
+			<a href="news/{{ news.id }}">
+				<div class="small_news">
+					{% load static %}
+					<img src="{{ news.image.url }}"/>
+					<div class="heading">{{ news.heading }}</div>
+				</div>
+			</a>
+
+			{% endfor %}
+
+		</div>
+	</div>
+</div>
+
+<div class="part-2">
+	<a href="category/society">
+		<div class="categories">
+			<div class="round"></div>
+			<span>Общество</span>
+		</div>
+	</a>
+	<div class="big_news_block">
+
+		{% for news in society_big %}
+
+		<a href="news/{{ news.id }}">
+			<div class="big_news">
+				{% load static %}
+				<img src="{{ news.image.url }}"/>
+				<div class="text">
+					<div class="heading">{{ news.heading }}</div>
+					<div class="main-info">{{ news.main_info }}</div>
+				</div>
+			</div>
+		</a>
+
+		{% endfor %}
+
+	</div>
+	<div class="small_news_block">
+
+		{% for news in society_small %}
+
+		<a href="news/{{ news.id }}">
+			<div class="small_news">
+				{% load static %}
+				<img src="{{ news.image.url }}"/>
+				<div class="heading">{{ news.heading }}</div>
+			</div>
+		</a>
+
+		{% endfor %}
+
+	</div>
+</div>
+
+<div class="part-3">
+	<a href="category/sport">
+		<div class="categories">
+			<div class="round"></div>
+			<span>Спорт</span>
+		</div>
+	</a>
+	<div class="news_block">
+
+		{% for news in sport_big %}
+		
+		<a href="news/{{ news.id }}">
+			<div class="big_news">
+				{% load static %}
+				<img src="{{ news.image.url }}"/>
+				<div class="text">
+					<div class="heading">{{ news.heading }}</div>
+					<div class="main-info">{{ news.main_info }}</div>
+				</div>
+			</div>
+		</a>
+
+		{% endfor %}
+		
+		<div class="small_news_block">
+
+			{% for news in sport_small %}
+
+			<a href="news/{{ news.id }}">
+				<div class="small_news">
+					{% load static %}
+					<img src="{{ news.image.url }}"/>
+					<div class="heading">{{ news.heading }}</div>
+				</div>
+			</a>
+
+			{% endfor %}
+		
+		</div>
+	</div>
+</div>
+
+{% endblock %}

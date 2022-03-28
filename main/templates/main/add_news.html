@@ -1,0 +1,44 @@
+{% extends 'main/base.html'%}
+
+{% block content %} 
+
+<div class="main">
+	<div class="left">
+		<div class="categories">
+			<div class="round"></div>
+			<span>Последние новости</span>
+		</div>
+		{% for news in last_news %}
+			<a href="../news/{{ news.id }}">
+				<div class="last_news">
+					<div class="time"><span>{{ news.date }}</span></div>
+					<div class="heading">{{ news.heading }}</div>
+				</div>
+			</a>
+		{% endfor %}
+	</div>
+	<div class="center center_form">
+		<form action="{% url 'add_news' %}" method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{ form }}
+			<div class="key_infromation">Если у вас нет ключа, пропустите. <br/>Тогда новость будет видна только после <br/>одобрения администратора</div>
+			<input type="submit" class="submit" value="Добавить" name="doUpload">
+		</form>
+	</div>
+	<div class="right">
+		<div class="categories">
+			<div class="round"></div>
+			<span>Советуем прочитать</span>
+		</div>
+		{% for news in recommended_news %}
+			<a href="../news/{{ news.id }}">
+				<div class="last_news">
+					<div class="time"><span>{{ news.date }}</span></div>
+					<div class="heading">{{ news.heading }}</div>
+				</div>
+			</a>
+		{% endfor %}
+	</div>
+</div>
+
+{% endblock %}

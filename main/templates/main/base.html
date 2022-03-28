@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=500">
+	<title>News 24</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'main/css/style.css' %}" type="text/css">
+</head>
+<body>
+	<div class="page">
+		<div class="header">
+			<div class="header_bar">
+				{% load static %}
+				<a href="{% url 'index' %}"><img src="{% static 'main/img/logo.png' %}" alt="logo" class="logo"></a>
+				<div class="categories_block"><div class="categories">
+					<a href="../category/uzbekistan"><div>УЗБЕКИСТАН</div></a>
+					<a href="../category/world"><div>МИР</div></a>
+					<a href="../category/society"><div>ОБЩЕСТВО</div></a>
+					<a href="../category/sport"><div>СПОРТ</div></a>
+				</div></div>
+				<a href="{% url 'add_news' %}" ><div class="add_news">ДОБАВИТЬ НОВОСТЬ</div></a>
+			</div>
+		</div>
+
+		{% block content %}{% endblock %}
+
+		<div class="footer">
+			<div class="footer_bar">
+				<div class="left">
+					<a href=""><div>О сайте</div></a>
+					<a href=""><div>RRS</div></a>
+					<a href=""><div>Контакты</div></a>
+					<a href=""><div>Реклама</div></a>
+					<a href=""><div>Наша команда</div></a>			
+				</div>
+				<div class="right">
+				</div>
+
+			</div>
+			<div class="info">
+				<div class="left">
+					<br/>
+					Данный сайт был разработан молодым программистом, использовавшим сайт kun.uz в качестве шаблона <br/> с целью набрать опыт в разработке сайтов.
+					<br/><br/>
+					Это недействительный новостной сайт. <br/> Все ресуры были взяты из открытого доступа сайта kun.uz.
+					<br/><br/>
+				</div>
+				<div class="right">
+					<a href="#">{% load static %}<img src="{% static 'main/img/links/fb.png' %}"/></a>
+					<a href="#">{% load static %}<img src="{% static 'main/img/links/instagram.png' %}"/></a>
+					<a href="#">{% load static %}<img src="{% static 'main/img/links/linkedin.png' %}"/></a>
+					<a href="#">{% load static %}<img src="{% static 'main/img/links/vk.png' %}"/></a>
+					<a href="#">{% load static %}<img src="{% static 'main/img/links/viber.png' %}"/></a>
+					<a href="#">{% load static %}<img src="{% static 'main/img/links/skype.png' %}"/></a>
+					<a href="#">{% load static %}<img src="{% static 'main/img/links/ok.png' %}"/></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
