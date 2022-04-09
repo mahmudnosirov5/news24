@@ -1,7 +1,15 @@
 {% extends 'main/base.html'%}
 
 {% block content %} 
-
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		image = document.querySelector('#id_image')
+		image.addEventListener('change', () => {
+			console.log(image.files[0].name)
+		label_for_image = document.querySelector('label[for="id_image"]').innerHTML = image.files[0].name
+		})
+	})
+</script>
 <div class="main">
 	<div class="left">
 		<div class="categories">
@@ -24,7 +32,7 @@
 			<div class="key_infromation">Если у вас нет ключа, пропустите. <br/>Тогда новость будет видна только после <br/>одобрения администратора</div>
 			<input type="submit" class="submit" value="Добавить" name="doUpload">
 		</form>
-	</div>
+	</div> 
 	<div class="right">
 		<div class="categories">
 			<div class="round"></div>
