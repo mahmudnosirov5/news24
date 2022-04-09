@@ -1,4 +1,4 @@
-from django.tests import TextCase 
+from django.test import TextCase 
 
 class Tests(TextCase):
 	def testA(self):
