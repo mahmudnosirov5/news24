@@ -1,6 +1,6 @@
-from django.test import TextCase 
+from django.test import TestCase
 
-class Tests(TextCase):
+class Tests(TestCase):
 	def testA(self):
 		assertEqual(2, 2)
 
