@@ -23,7 +23,7 @@ class Tests(TestCase):
 		self.assertIsNone(None)
 
 	def testH(self):
-		self.assertIsNotNone(None)
+		self.assertIsNotNone(True)
 
 	def testI(self):
 		self.assertIn(2, [3, 2, 5])
